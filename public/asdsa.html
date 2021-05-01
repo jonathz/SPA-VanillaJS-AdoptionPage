@@ -7,261 +7,53 @@
     <title>Document</title>
 </head>
 <body>
-    <style>
-        body{background-color: black;}
-    </style>
+    
+    <section id=petDetails class="bg-primary">
+        <div id="photoWide" class="w-full h-1/2">
+            <img src="../images/atras.svg" id="back" class="h-5 absolute left-0 top-1">
+        </div>
+        <section id="mainDetails">
+            <div>
+                <div id="petName"></div>
+                <div id="heart" class="w-5 h-5">
+                    <img src="../images/heart.svg" alt="" srcset="">
+                </div>
+            </div>
+            <div class="justify-between">
+                    <div id="breedBox">
+                        <img class="h-2" src="../images/breed.svg">
+                    </div>
+                    <div id="ageBox">
+                        <img class="h-2" src="../images/age.svg">
+                    </div>
+            </div>
+
+            <div id="locationBox"><img src="../images/location.svg" ></div>
 
 
-    <script>
-        function getRandom(min, max) {
-	        return Math.random() * (max - min) + min;
-        }
-        // import {getRandom } from './petNames.js' 
+            <span class="font-extrabold">Personalidad </span>
+            <div id="petSpecs" class="flex justify-around"></div>
 
-// function getPersonality(){
-//      chacteristic[0].attributeNo1 = personality[Math.floor(getRandom(0,9.9))]
-//      chacteristic.attributeNo2 = personality[Math.floor(getRandom(0,9.9))]
-//      chacteristic.attributeNo3 = personality[Math.floor(getRandom(0,9.9))]
-     
-//     if (attributeNo1==attributeNo2 ||attributeNo1==attributeNo3||attributeNo2==attributeNo3 ){
-//         return getPersonality
-//     }else{
-//         return chacteristic
-//     }
-// }
+            <span id="petTitleBio"></span>
+            <div id="bioBox"></div>
 
-let personality = [{attribute: "Amigable",image: "../images/personality/amigable.svg"},
-{attribute: "Cariñoso",image: "../images/personality/cariñoso.svg"},
-{attribute: "Cobarde",image: "../images/personality/cobarde.svg"},
-{attribute: "Gloton",image: "../images/personality/gloton.svg"},
-{attribute: "Guardian",image: "../images/personality/guardian.svg"},
-{attribute: "Inquieto",image: "../images/personality/inquieto.svg"},
-{attribute: "Jugueton",image: "../images/personality/jugueton.svg"},
-{attribute: "Nocturno",image: "../images/personality/nocturno.svg"},
-{attribute: "Tierno",image: "../images/personality/tierno.svg"},
-{attribute: "Dormilon",image: "../images/personality/sleep-icon.jpg"}]
-let a="asd" 
-let chacteristic = {}
-console.log(a)
-chacteristic = personality[Math.floor(getRandom(0,9.9))]
+            <div id="autor">
+                <div id="photoAutor"></div>
+                <div id="nameAutorBox">
+                    <span>Publicado por</span>
+                    <span id="ownerName"></span>
+                </div>
+                <div id="btnHome" class="bg-selector flex items-center rounded-3xl w-28 h-10 ml-10">
+                    <p class="">Contactar</p>
+                </div>
+            </div>
 
-let locationList = [
-        {
-            "Location": "Bogotá"
-        },
-        {
-            "Location": "Medellín"
-        },
-        {
-            "Location": "Cali"
-        },
-        {
-            "Location": "Barranquilla"
-        },
-        {
-            "Location": "Cartagena"
-        },
-        {
-            "Location": "Cúcuta"
-        },
-        {
-            "Location": "Soacha"
-        },
-        {
-            "Location": "Soledad"
-        },
-        {
-            "Location": "Bucaramanga"
-        },
-        {
-            "Location": "Bello"
-        },
-        {
-            "Location": "Villavicencio"
-        },
-        {
-            "Location": "Ibagué"
-        },
-        {
-            "Location": "Santa Marta"
-        },
-        {
-            "Location": "Valledupar"
-        },
-        {
-            "Location": "Montería"
-        },
-        {
-            "Location": "Pereira"
-        },
-        {
-            "Location": "Manizales"
-        },
-        {
-            "Location": "Pasto"
-        },
-        {
-            "Location": "Neiva"
-        },
-        {
-            "Location": "Palmira"
-        },
-        {
-            "Location": "Popayán "
-        },
-        {
-            "Location": "Buenaventura"
-        },
-        {
-            "Location": "Floridablanca"
-        },
-        {
-            "Location": "Armenia"
-        },
-        {
-            "Location": "Sincelejo"
-        },
-        {
-            "Location": "Itagüí"
-        },
-        {
-            "Location": "Tumaco"
-        },
-        {
-            "Location": "Envigado"
-        },
-        {
-            "Location": "Dosquebradas"
-        },
-        {
-            "Location": "Tuluá"
-        },
-        {
-            "Location": "Barrancabermeja"
-        },
-        {
-            "Location": "Riohacha"
-        },
-        {
-            "Location": "Uribia"
-        },
-        {
-            "Location": "Maicao"
-        },
-        {
-            "Location": "Piedecuesta"
-        },
-        {
-            "Location": "Tunja"
-        },
-        {
-            "Location": "Yopal"
-        },
-        {
-            "Location": "Florencia"
-        },
-        {
-            "Location": "Girón"
-        },
-        {
-            "Location": "Jamundí"
-        },
-        {
-            "Location": "Facatativá"
-        },
-        {
-            "Location": "Fusagasugá"
-        },
-        {
-            "Location": "Mosquera"
-        },
-        {
-            "Location": "Chía"
-        },
-        {
-            "Location": "Zipaquirá"
-        },
-        {
-            "Location": "Rionegro"
-        },
-        {
-            "Location": "Magangué"
-        },
-        {
-            "Location": "Malambo"
-        },
-        {
-            "Location": "Cartago"
-        },
-        {
-            "Location": "Sogamoso"
-        },
-        {
-            "Location": "Quibdó"
-        },
-        {
-            "Location": "Turbo"
-        },
-        {
-            "Location": "Ocaña"
-        },
-        {
-            "Location": "Buga"
-        },
-        {
-            "Location": "Pitalito"
-        },
-        {
-            "Location": "Apartadó"
-        },
-        {
-            "Location": "Madrid"
-        },
-        {
-            "Location": "Duitama"
-        },
-        {
-            "Location": "Ciénaga"
-        },
-        {
-            "Location": "Aguachica"
-        },
-        {
-            "Location": "Ipiales"
-        },
-        {
-            "Location": "Lorica"
-        },
-        {
-            "Location": "Turbaco"
-        },
-        {
-            "Location": "Santander de Quilichao"
-        },
-        {
-            "Location": "Villa del Rosario"
-        },
-        {
-            "Location": "Sahagún"
-        },
-        {
-            "Location": "Yumbo"
-        },
-        {
-            "Location": "Girardot"
-        },
-        {
-            "Location": "Cereté"
-        },
-        {
-            "Location": "Funza"
-        },
-        {
-            "Location": "Sabanalarga"
-        }
-    ]
 
-    // export default getPersonality
-    </script>
+
+        </section>
+
+    </section>
+
+    
 </body>
 </html>

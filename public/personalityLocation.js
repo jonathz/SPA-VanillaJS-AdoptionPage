@@ -1,16 +1,19 @@
 import {getRandom } from './petNames.js' 
-let chacteristic = {}
+
 function getPersonality(){
+    let chacteristic = {}
      chacteristic.attributeNo1 = personality[Math.floor(getRandom(0,9.9))]
      chacteristic.attributeNo2 = personality[Math.floor(getRandom(0,9.9))]
      chacteristic.attributeNo3 = personality[Math.floor(getRandom(0,9.9))]
-     chacteristic.location = locationList[Math.floor(getRandom(0,71.9))]
-     
+     chacteristic.location = locationList[Math.floor(getRandom(0,70.9))].Location
     if (chacteristic.attributeNo1==chacteristic.attributeNo2 ||chacteristic.attributeNo1==chacteristic.attributeNo3
         ||chacteristic.attributeNo2==chacteristic.attributeNo3 ){
-        return getPersonality
+            return getPersonality()
     }else{
-        return chacteristic
+        let qualities = []
+        qualities.push(chacteristic.attributeNo1, chacteristic.attributeNo2,chacteristic.attributeNo3,chacteristic.location)
+        
+        return qualities
     }
 }
 
@@ -24,9 +27,6 @@ let personality = [{attribute: "Amigable",image: "../images/personality/amigable
 {attribute: "Nocturno",image: "../images/personality/nocturno.svg"},
 {attribute: "Tierno",image: "../images/personality/tierno.svg"},
 {attribute: "Dormilon",image: "../images/personality/sleep-icon.jpg"}]
-
-
-console.log(chacteristic)
 
 let locationList = [
         {
@@ -243,5 +243,5 @@ let locationList = [
             "Location": "Sabanalarga"
         }
     ]
-
+    
     export default getPersonality

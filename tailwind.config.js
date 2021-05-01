@@ -28,8 +28,18 @@ module.exports = {
         },
       colors: {
         primary: "#FEC7D7",
+        secondary:"#A786DF",
         selector: "#0e172c",
         homeColor: "#85D1CE"
+      },
+      animation:{
+        beat:'beat 1s ease-out infinite',
+      },
+      keyframes:{
+        beat:{
+          '0% , 100%':{tramsform:'scale(1)'},
+          '25%':{transform: 'scale(1.2)'},
+        }
       },
       
     },
