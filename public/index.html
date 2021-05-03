@@ -12,9 +12,21 @@
 <!-- bg-primary -->
 <body>
 <main id="mainScreen" class="overscroll-contain h-screen bg-primary flex flex-col items-center font-Nunito justify-between">
-    <h1 class="font-extrabold font-Nunito mt-5 lg:order-2" >Adopta una adorable <br> mascota</h1>
+    <section id="messagePlatform" class="flex-col hidden h-screen">
+        <div id="photoMessage" class="w-screen h-64 flex flex-col-reverse justify-center bg-white items-center">
+            <span id="nameContact" class="font-bold mt-2"></span>
+        </div>
+        <div id="conversationSpace" class="h-screen overflow-y-scroll items-end"></div>
+        <div class="m-1 ">
+            <span id="typing" class="w-full animate-pulse"></span>
+            <input type="text" placeholder="Aa" class="w-full border border-black rounded-sm" id="messageSpace"> 
+        </div>
+        
+    </section>
+    <img src="../images/back.svg" id="hiddenBack" class="h-1/8 fixed left-0 top-1 m-5 cursor-pointer hidden">
+    <h1 class="font-extrabold font-Nunito mt-5 lg:order-2" id="titleSection">Adopta una adorable <br> mascota</h1>
     <section class="lg:order-3 mt-5 font-semibold" id="petTypeSelector"> 
-        <h2 class="font-Nunito text-lg">Categorías de mascotas</h2>
+        <h2 class="font-Nunito text-lg" >Categorías de mascotas</h2>
         <div class="flex justify-around">
             <div id="btnDog" class="cursor-pointer flex items-center 
             justify-between rounded-lg bg-selector color-white mr-5">
@@ -46,7 +58,7 @@
             <p class="text-homeColor mr-4">Home</p>
         </div>
         <div class="flex justify-between w-1/2 sm:justify-around lg:justify-between lg:w-1/5 mx-5 ">
-            <img src="/images/Component 1.svg" alt="" srcset="">
+            <img src="/images/Component 1.svg" id="messageImg" class="cursor-pointer">
             <img class="cursor-pointer" id="showFav" src="/images/Component 2.svg" alt="" srcset="">
             <img src="/images/Component 3.svg" alt="" srcset="">
             
@@ -120,7 +132,7 @@
                 <span id="ownerName"></span>
             </div>
         </div>
-            <div id="btnHome" class="bg-selector flex items-center rounded-3xl w-36 h-10 ml-10 justify-center mr-6">
+            <div id="btnContact" class="bg-selector cursor-pointer flex items-center rounded-3xl w-36 h-10 ml-10 justify-center mr-6">
                 <p class="text-white text-sm">Contactar</p>
             </div>
         </div>

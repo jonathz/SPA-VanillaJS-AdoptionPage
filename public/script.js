@@ -1,8 +1,12 @@
 class User{
     constructor(){
         this.favoritelist = []
+        this.data = {name:'Cuenta',
+                    lastName: 'Visitante',
+                    email: 'Por favor actualice sus datos',
+                    contacts:[]
+        } 
     }
-    
     addPet(infoPet){
         let nameToFav = document.querySelector('#nameDetails').innerHTML
         let photoSrc = document.querySelector('#bigPhoto').getAttribute("src")
@@ -19,28 +23,16 @@ class User{
 
     }
 
-        console.log(this.favoritelist)
 
-
-
-        // let fondoCorazon = document.querySelector('#heart')
-        // if (fondoCorazon.classlist.contains('bg-red-400')) {
-        //     document.querySelector('#heart').classList.remove('bg-red-400')
-        // }
-        // console.log (document.querySelector('#heart'))
-        // identificacion = identificacion.getAttribute("src")
-        // this.favoritelist.push(infoPet)
-        
-        // console.log(catOffer)
     }
     
     deletePet(infoPet){
         let photoSrc = document.querySelector('#bigPhoto').getAttribute("src")
-        console.log("inicio borrar")
+        
         for (let i = 0; i<this.favoritelist.length;i++){
             console.log(this.favoritelist[i].image)
             if (this.favoritelist[i].image==photoSrc){
-                console.log(this.favoritelist[i].image)
+                
                     this.favoritelist.splice(i,1)
                     document.querySelector('#heart').classList.remove('bg-red-400')
                     document.querySelector('#btnHeart').classList.remove('animate-beat')
@@ -48,7 +40,6 @@ class User{
             }
         }
         
-        console.log(this.favoritelist)
     }
     
 }
@@ -67,8 +58,12 @@ let guest = new User
 document.querySelector('#btnDog').style.opacity = 1
 document.querySelectorAll('#showFav')[0].addEventListener('click', showFavPetList)
 document.querySelectorAll('#showFav')[1].addEventListener('click', showFavPetList)
-document.querySelector('#heart').addEventListener ('click',toFavorites)
+document.querySelector('#hiddenBack').addEventListener ('click', messagesList)
+document.querySelector('#heart').addEventListener ('click', toFavorites)
+document.querySelector('#messageImg').addEventListener ('click', messagesList)
+document.querySelector('#btnContact').addEventListener ('click', conversationScreen)
 document.querySelector('#btnHome').addEventListener('click', ()=>{
+    document.querySelector('#titleSection').innerHTML = `Adopta una adorable <br> mascota`
     document.querySelector('#petTypeSelector').style.display = 'block'
     document.querySelector('#petBank').innerHTML = ''
     if (document.querySelector('#btnDog').style.opacity == 1){
@@ -118,8 +113,7 @@ getAPI(CAT_API) //lista de gatos
             }
              
         }
-        // console.log(data)
-        // console.log(catOffer)
+        
         document.querySelector('#btnCat').addEventListener('click', button)
     }) 
     
@@ -150,9 +144,7 @@ getAPI(DOG_API) // lista de perros
         
         
     }
-    
-    // console.log(data)
-    // console.log(dogOffer)
+   
     document.querySelector('#btnDog').addEventListener('click', button)
     printer(dogOffer)
 })
@@ -190,7 +182,6 @@ function printer(groupPet){
    
 }
 function details(){
-    console.log (this)
     petType = this.getAttribute('petkind')
     document.querySelector('#petSpecs').innerHTML = ''
     let animalSelected
@@ -250,10 +241,8 @@ function details(){
 }
     
     function toFavorites(){ 
-        console.log(this)
-        
         if(document.querySelector('#btnDog').style.opacity == 1){
-            console.log("entro en perros")
+            
             if (dogOffer[animalNumber].favorite == 1) {
                 
                 document.querySelector('#heart').classList.remove('bg-red-400')
@@ -264,22 +253,18 @@ function details(){
                 
                 document.querySelector('#heart').classList.add('bg-red-400')
                 document.querySelector('#btnHeart').classList.add('animate-beat')
-                dogOffer[animalNumber].favorite = 1
-                console.log(this)               
+                dogOffer[animalNumber].favorite = 1            
                 petFav = {...dogOffer[animalNumber], ...users[animalNumber] }
                 guest.addPet(petFav)
             }
         }else{
         if (document.querySelector('#btnCat').style.opacity == 1) {
-            console.log(this)               
-            console.log("entro en gatos")
             if (catOffer[animalNumber].favorite == 1) {
             document.querySelector('#heart').classList.remove('bg-red-400')
             document.querySelector('#btnHeart').classList.remove('animate-beat')
             catOffer[animalNumber].favorite = 0
             guest.deletePet(catOffer[animalNumber])                                
-        }else{
-            console.log(this)               
+        }else{             
             document.querySelector('#heart').classList.add('bg-red-400')
             document.querySelector('#btnHeart').classList.add('animate-beat')
             catOffer[animalNumber].favorite = 1
@@ -288,9 +273,7 @@ function details(){
         }
     
         }
-    
-            // console.log(petFav)
-        
+       
     }
 
 
@@ -298,7 +281,6 @@ function details(){
 
 
             function closeDetails(){
-                
                 document.querySelector('#mainScreen').style.display = 'flex'
                 document.querySelector('#petDetails').style.display = 'none'
                 document.querySelector('#photoWide').innerHTML = ''
@@ -313,45 +295,12 @@ function details(){
                 document.querySelector('#mainScreen').style.display = 'flex'
                 document.querySelector('#petDetails').style.display = 'none'
                 document.querySelector('#petTypeSelector').style.display = 'none'
+                document.querySelector('#titleSection').innerHTML = 'Mascotas Favoritas'
+                // console.log (document.querySelector('#titleSection').innerHTML)
+                
                 printerFav(guest.favoritelist)
-
-
-
-                
-                // for (let eleccion of document.querySelectorAll('#pet')) {    
-                //     eleccion.addEventListener ('click',detailsFromFavorites)
                 }
-                // if(guest.favoritelist.length==1){
-                //     document.getElementById('petBankFav').innerHTML = ""
-                //     let i =0
-                //     document.getElementById('petBankFav').innerHTML = `<div id="pet" index="${i}" class="flex 
-                //     cursor-pointer flex-col shadow-inner justify-end w-40 h-64 bg-center bg-scroll bg-cover 
-                //     bg-no-repeat rounded-2xl lg:mr-5" style="background-image:url(${guest.favoritelist[i].image})">
-                //     <span class="text-white m-2"><p class="font-bold">${guest.favoritelist[i].name}</p>
-                //     <p class="text-white text-opacity-80">${guest.favoritelist[i].breed}</p></span>         
-                //     </div>`
-                // }
                 
-                
-
-                // for (let i =0;i<guest.favoritelist.length-1;i++){
-                //     console.log(i)
-                //     document.getElementById('petBankFav').insertAdjacentHTML ('beforeend',`<div id="pet" index="${i}" class="flex 
-                //     cursor-pointer flex-col shadow-inner justify-end w-40 h-64 bg-center bg-scroll bg-cover 
-                //     bg-no-repeat rounded-2xl lg:mr-5" style="background-image:url(${guest.favoritelist[i].image})">
-                //     <span class="text-white m-2"><p class="font-bold">${guest.favoritelist[i].name}</p>
-                //     <p class="text-white text-opacity-80">${guest.favoritelist[i].breed}</p></span>         
-                //     </div>`)
-                    // <div id="pet" index="${i+1}" class="flex cursor-pointer flex-col shadow-inner justify-end w-40 h-64 mt-6 bg-center bg-scroll 
-                    // bg-cover  bg-no-repeat rounded-2xl lg:mr-5" style="background-image:url(${guest.favoritelist[i+1].image})">
-                    // <span class="text-white m-2"><p class="font-bold">${guest.favoritelist[i+1].name}</p>
-                    // <p class="text-white text-opacity-80">${guest.favoritelist[i+1].breed}</p></span>         
-                    // </div>)
-                // } 
-                
-                
-
-
 function printerFav(groupPet){
      for (let i=0; i < groupPet.length;i++ ){
         document.getElementById('petBank').insertAdjacentHTML ('beforeend',`<div id="pet" petkind="${groupPet[i].petType}" index="${groupPet[i].indexNo}" class="flex 
@@ -364,52 +313,83 @@ function printerFav(groupPet){
         document.querySelectorAll('#pet')[i].onclick= details
         }
     }
-    // for (let i = 0; i < document.querySelectorAll('#pet').length; i++) {
-// }             
+function messagesList(){
+    document.querySelector('#navBar').style.display = 'flex'
+    document.querySelector('#titleSection').innerHTML = 'Mensajes'
+    document.querySelector('#petTypeSelector').style.display = 'none'
+    document.querySelector('#messagePlatform').style.display = 'none'
+    document.querySelector('#petBank').innerHTML = ''
+    document.querySelector('#conversationSpace').childElementCount
+    // if
+    //imprimir en petbank los contactos
+}
+function conversationScreen(){
 
+    // document.querySelector('#ownerName').innerHTML CONSEGUIR NOMBRE DE ACA
+    // document.querySelector('#photoAutor').innerHTML CONSEGUIR FOTO
+    
+    let photoContact = document.querySelector('#photoAutor')
+    let nameContact = document.querySelector('#ownerName').innerHTML
+    let petAbout = document.querySelector('#nameDetails').innerHTML
+    document.querySelector('#messagePlatform').style.display = 'flex'
+    document.querySelector('#photoMessage').appendChild(photoContact)
+    document.querySelector('#nameContact').innerHTML = nameContact
+    
+    document.querySelector('#photoAutor').style.width = '64px'
+    document.querySelector('#photoAutor').style.height = '64px'
+    console.log(photoContact)
+    document.querySelector('#navBar').style.display = 'none'
+    document.querySelector('#hiddenBack').style.display = 'flex'
+    document.querySelector('#titleSection').innerHTML = ''
+    document.querySelector('#petTypeSelector').style.display = 'none'
+    document.querySelector('#petBank').innerHTML = ''
+    document.querySelector('#mainScreen').style.display = 'flex'
+    document.querySelector('#petDetails').style.display = 'none'
+    document.querySelector('#photoWide').innerHTML = ''
+    document.querySelector('#petSpecs').innerHTML = ''
+    
 
-// function detailsFromFavorites(){
+    // cuando de atras se guarde el nombre y foto 
+    // con enter guarda en un arreglo
     
-//     document.querySelector('#heart').addEventListener ('click',toFavorites)
-//     let animalSelected
-//     let animalNumber = this.getAttribute('index')
-//     if (document.querySelector('#btnDog').style.opacity == 1){
-//         animalSelected = dogOffer
-//     }else{
-//         animalSelected = catOffer
-//     }
-//     if(animalSelected[animalNumber].favorite == 1){
-//         document.querySelector('#heart').classList.add('bg-red-400')
-//         document.querySelector('#btnHeart').classList.add('animate-beat')
-//     }else{
-//         document.querySelector('#heart').classList.remove('bg-red-400')
-//         document.querySelector('#btnHeart').classList.remove('animate-beat')
-//     }
-//     document.querySelector('#mainScreen').style.display = 'none'
-//     document.querySelector('#petDetails').style.display = 'flex'
-//     document.querySelector('#photoWide').innerHTML =
-//      `<img id="bigPhoto" class="w-screen  lg:w-108" src="${guest.favoritelist[animalNumber].image}">`
-//     document.querySelector('#back').addEventListener ('click', closeDetails)
-//     document.querySelector('#petName').innerHTML = guest.favoritelist[animalNumber].name + " &nbsp;"
-//     document.querySelector('#petName').insertAdjacentHTML('beforeend',
-//     `<img class="" src="${guest.favoritelist[animalNumber].genderIcon}">`)
-//     document.querySelector('#breedType').innerHTML = guest.favoritelist[animalNumber].breed
-//     document.querySelector('#ageNumber').innerHTML = guest.favoritelist[animalNumber].age + " meses"
-//     document.querySelector('#locationId').innerHTML = guest.favoritelist[animalNumber].characteristic[3]
-//     
-//     for (let i=0; i<3; i++){
-//     document.querySelector('#petSpecs').insertAdjacentHTML('beforeend',`
-//     <div class="flex flex-col m-3.5 items-center justify-center h-20 w-20 border-opacity-85 border-2 border-secondary rounded-lg">
-    
-//         <div class="w-11 h-11 object-fill " >
-//             <img src="${guest.favoritelist[animalNumber].characteristic[i].image}">
-//         </div>
-//        <p class="text-gray-600"> ${guest.favoritelist[animalNumber].characteristic[i].attribute} </p>
-//     </div>`)
-//     }
-//     document.querySelector('#petTitleBio').innerHTML =`Historia de ${guest.favoritelist[animalNumber].name} <br>`
-//     document.querySelector('#bioBox').innerHTML =`${guest.favoritelist[animalNumber].description}`
-//     document.querySelector('#photoAutor').innerHTML = `<img src=${users[animalNumber].selfieOwner}></img>`
-//     document.querySelector('#ownerName').innerHTML = `${users[animalNumber].nameOwner}`
-    
-// }
+    document.querySelector('#messageSpace').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            console.log(messageSpace.value)
+            let conversationLog = []
+            let moment = new Date()
+            let hour = moment.getHours()
+            let minute = moment.getMinutes()
+            let hourToPrint =hour + ':' + minute
+            //agregar funcion de hora
+            conversationLog.push('Yo'+hourToPrint +'/'+ messageSpace.value)
+
+            document.querySelector('#conversationSpace').insertAdjacentHTML('beforeend',
+            `<div class="w-full flex justify-end">   
+                    <div class="flex flex-col w-72 mr-6" >
+                    <span class="font-semibold mt-10 text-center">${hourToPrint}</span>
+                    <span class="flex flex-col bg-white ml-6 p-4 rounded-2xl border
+                    border-black ">${messageSpace.value}</span>
+                </div>
+             </div>`)
+             document.querySelector('#typing').innerHTML = `${nameContact} esta escribiendo...`
+             document.querySelector('#typing').style.display= 'block'
+            setTimeout(()=>{
+                document.querySelector('#typing').style.display= 'none'
+                document.querySelector('#conversationSpace').insertAdjacentHTML('beforeend',
+                `<div class="flex flex-col w-72" >
+                    <span class="font-semibold mt-10 text-center">${hourToPrint}</span>
+                    <span class="flex flex-col items-center bg-messageBubble text-white ml-6 p-4 rounded-2xl border
+                     border-black ">'¡Hola! claro, podemos acordar un lugar y hora para que conoscas a ${petAbout}'</span>
+                </div>`)
+            }, 3000)
+            
+
+            // let contact = {name:document.querySelector('#ownerName').innerHTML,
+            //                photoContact, sendedMessages:}
+            // guest.data.contacts[hacer push]{nameContact: innerhtml,foto:src contact,mensajes[]}
+            // document.querySelector('#conversation').insertAdjacentElement
+        }
+    });
+
+}
+  
