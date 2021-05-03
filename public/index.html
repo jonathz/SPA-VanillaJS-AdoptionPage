@@ -11,10 +11,10 @@
 </head >
 <!-- bg-primary -->
 <body>
-<main id="mainScreen" class=" h-screen bg-primary flex flex-col items-center font-Nunito  justify-between">
-    <h1 class="font-extrabold font-Nunito lg:order-2" >Adopta una mascota adorable</h1>
-    <section class="lg:order-3"> 
-        <h2 class="font-Nunito">Categorías de mascotas</h2>
+<main id="mainScreen" class="overscroll-contain h-screen bg-primary flex flex-col items-center font-Nunito justify-between">
+    <h1 class="font-extrabold font-Nunito mt-5 lg:order-2" >Adopta una adorable <br> mascota</h1>
+    <section class="lg:order-3 mt-5 font-semibold" id="petTypeSelector"> 
+        <h2 class="font-Nunito text-lg">Categorías de mascotas</h2>
         <div class="flex justify-around">
             <div id="btnDog" class="cursor-pointer flex items-center 
             justify-between rounded-lg bg-selector color-white mr-5">
@@ -33,7 +33,7 @@
     </section>
     <!-- border-solid border-1 border-red-600 -->
     <section class=" w-96  
-    flex justify-around flex-wrap overflow-y-scroll mt-5 lg:order-4 lg:w-108" id="petBank">
+    flex justify-center flex-wrap overflow-y-scroll mt-8 lg:order-4 lg:w-108" id="petBank">
                     
     </section>
 
@@ -75,13 +75,13 @@
     </section>
     <div id="containerDetails" class="bg-primary flex flex-col items-center">
         <!-- foto -->
-        <img src="../images/back.svg" id="back" class="h-1/8 absolute left-0 top-1 m-5 cursor-pointer">
+        <img src="../images/back.svg" id="back" class="h-1/8 fixed left-0 top-10 m-5 cursor-pointer">
         <div id="photoWide" class="flex w-screen bg-primary flex-col items-center"></div>
         <!-- informacion de la mascota -->
         <section id="mainDetails" class="-pt-20 -mt-5 bg-white rounded-xl w-screen lg:w-108 md:text-center" >
             <div class="flex justify-between items-center">
                 <div id="petName" class="flex justify-around text-2xl font-extrabold pt-6 pl-6 pb-2 "></div>
-                <div id="heart" class="cursor-pointer w-10 h-10 mr-6 mt-4 border rounded-full flex justify-center shadow-2xl items-center hover:bg-red-400">
+                <div id="heart" class="cursor-pointer w-10 h-10 mr-6 mt-4 border shadow-sm rounded-full flex justify-center items-center hover:bg-red-400">
                     <img  id="btnHeart" src="../images/heart.svg" >
             </div>
         </div>
@@ -133,36 +133,6 @@
 
 <!-- FAVORITOS -->
 
-
-<main id="favoritesWindow" class="hidden h-screen bg-primary  flex-col items-center font-Nunito  justify-between">
-    <h1 class="font-extrabold text-3xl font-Nunito lg:order-2" >Mascotas Favoritas</h1>
-    <section class="lg:order-3"> 
-           
-
-    </section>
-    <!-- border-solid border-1 border-red-600 -->
-    <section class=" w-96  
-    flex justify-around flex-wrap overflow-y-scroll mt-5 lg:order-4 lg:w-108" id="petBankFav">
-                    
-    </section>
-
-    
-    <script type="module" src="/public/script.js"></script>
-    
-    <section id="navBar" class="bg-white flex justify-around sm:justify-between w-full py-3 lg:order-1 ">
-        <div id="btnHome" class="bg-selector flex items-center rounded-3xl w-28 h-10 ml-10">
-            <img src="/images/home.svg" class="m-2 ml-5" alt=""> 
-            <p class="text-homeColor mr-4">Home</p>
-        </div>
-        <div class="flex justify-between w-1/2 sm:justify-around lg:justify-between lg:w-1/5 mx-5 ">
-            <img src="/images/Component 1.svg" alt="" srcset="">
-            <img class="cursor-pointer" id="showFav" src="/images/Component 2.svg" alt="" srcset="">
-            <img src="/images/Component 3.svg" alt="" srcset="">
-            
-        </div>
-
-    </section>
-</main>
 
 
 
