@@ -19,7 +19,7 @@ class User{
         }else{
             for (let i = 0; i<20;i++){
                 if (dogOffer[i].name==nameToFav && dogOffer[i].image==photoSrc){
-                    this.contactList.push(dogOffer[i])}
+                    this.favoritelist.push(dogOffer[i])}
         }
 
     }
@@ -29,7 +29,10 @@ class User{
     addContact(){
         let photoSrc = document.querySelector('#photoAutor').children[0].src
             for (let i = 0; i<20;i++){
-                if (users[i].favorite == 1){}
+                if (users[i].favorite == 1){
+                    break
+                }
+
                 if (users[i].selfieOwner==photoSrc){
                     users[i].favorite = 1
                     this.contactList.push(users[i])}
