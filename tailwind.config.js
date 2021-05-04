@@ -30,7 +30,9 @@ module.exports = {
         secondary:"#A786DF",
         selector: "#0e172c",
         homeColor: "#85D1CE",
-        messageBubble: "#535353"
+        messageBubble: "#535353",
+        crystal: "rgba(0,0,0,0.9)"
+
       },
       animation:{
         beat:'beat 1s ease-out infinite',

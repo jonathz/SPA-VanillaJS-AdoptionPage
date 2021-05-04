@@ -2,9 +2,9 @@ class User{
     constructor(){
         this.favoritelist = []
         this.contactList = []
-        this.data = {name:'Cuenta',
-                    lastName: 'Visitante',
-                    email: 'Por favor actualice sus datos',
+        this.data = {name:'Juan',
+                    lastName: 'Méndez',
+                    email: 'juan.mendez@gmail.com',
                     contacts:[]
         }              
     }
@@ -55,6 +55,7 @@ class User{
         
     }
 }
+
 import { maleName , femaleName, getRandom } from './petNames.js' // banco de nombres
 import getPersonality from './personalityLocation.js'
 const CAT_API = './catsAPI.json' //razas y fotos (corregida)
@@ -75,14 +76,11 @@ document.querySelectorAll('#showFav')[1].addEventListener('click', showFavPetLis
 document.querySelector('#hiddenBack').addEventListener ('click', conversationComp)
 document.querySelector('#heart').addEventListener ('click', toFavorites)
 document.querySelector('#messageImg').addEventListener ('click', messagesList)
+document.querySelectorAll('#showProfile')[0].addEventListener('click', profile)
+document.querySelectorAll('#showProfile')[1].addEventListener('click', profile)
 document.querySelector('#btnContact').addEventListener ('click', conversationScreen)
-document.querySelector('#btnHome').addEventListener('click', ()=>{
-    document.querySelector('#titleSection').innerHTML = `Adopta una adorable <br> mascota`
-    document.querySelector('#petTypeSelector').style.display = 'block'
-    document.querySelector('#petBank').innerHTML = ''
-    if (document.querySelector('#btnDog').style.opacity == 1){
-        printer(dogOffer)}else{printer(catOffer)}
-    })
+document.querySelector('#btnHome').addEventListener('click', goHome)
+
      
 function getAPI(url){
     return new Promise ((resolve,reject)=> {
@@ -174,6 +172,31 @@ function button(){
         printer(catOffer)
     }      
 }
+document.querySelector('#nextStart').addEventListener('click' , nextStart)
+
+function nextStart(){
+    document.querySelector('#imgStart').src = '../images/start 2.png'
+    document.querySelector('#startEnd').style.display = 'block'
+    document.querySelector('#nextStart').addEventListener('click' , startEnd) 
+}
+function startEnd(){
+    document.querySelector('#startPop').style.display = 'none'
+    document.querySelector('#petTypeSelector').style.display = 'block'
+}
+
+function goHome(){
+        document.querySelector('#btnHome').src = '../images/home.svg'
+        document.querySelector('#messageImg').src = '../images/Component 1.svg'
+        document.querySelector('#showFav').src = '../images/Component 2.svg'
+        document.querySelector('#showProfile').src = '../images/Component 3.svg'
+
+        document.querySelector('#titleSection').innerHTML = `Adopta una adorable <br> mascota`
+        document.querySelector('#petTypeSelector').style.display = 'block'
+        document.querySelector('#petBank').innerHTML = ''
+        if (document.querySelector('#btnDog').style.opacity == 1){
+            printer(dogOffer)}else{printer(catOffer)}
+        
+}
 
 function printer(groupPet){
     for (let i=0; i < groupPet.length;i++ ){
@@ -194,6 +217,7 @@ function printer(groupPet){
 }
 function details(){
     petType = this.getAttribute('petkind')
+    // document.querySelector('#profileInputs').style.display = 'null'
     document.querySelector('#petSpecs').innerHTML = ''
     let animalSelected
         animalNumber = this.getAttribute('index')
@@ -227,6 +251,9 @@ function details(){
     document.querySelector('#photoWide').innerHTML = 
      `<img id="bigPhoto" class="w-screen  lg:w-108" src="${animalSelected[animalNumber].image}">`
     document.querySelector('#back').addEventListener ('click', closeDetails)
+    document.querySelector('#btnHomeD').addEventListener('click', closeDetails)
+    document.querySelector('#messageImgD').addEventListener('click', messagesList)
+    document.querySelector('#showProfile').addEventListener('click', closeDetails)
     document.querySelector('#petName').innerHTML = `<p id="nameDetails">${animalSelected[animalNumber].name}</p>`
     document.querySelector('#petName').insertAdjacentHTML('beforeend',
     `&nbsp; <img class="" src="${animalSelected[animalNumber].genderIcon}">`)
@@ -250,6 +277,7 @@ function details(){
 }
     
     function toFavorites(){ 
+        
         if(document.querySelector('#btnDog').style.opacity == 1){
             
             if (dogOffer[animalNumber].favorite == 1) {
@@ -294,7 +322,11 @@ function details(){
             
             
             function showFavPetList(){
-                
+                document.querySelector('#showFav').src = '../images/favSelect.svg'
+                document.querySelector('#btnHome').src = '../images/homeNoBlue.svg'
+                document.querySelector('#messageImg').src = '../images/Component 1.svg'
+                document.querySelector('#showProfile').src = '../images/Component 3.svg'
+
                 document.getElementById('petBank').innerHTML = ""
                 document.querySelector('#mainScreen').style.display = 'flex'
                 document.querySelector('#petDetails').style.display = 'none'
@@ -318,12 +350,22 @@ function printerFav(groupPet){
         }
     }
 function messagesList(){
+    document.querySelector('#messageImg').src = '../images/messageSelected.svg'
+    document.querySelector('#btnHome').src = '../images/homeNoBlue.svg'
+    document.querySelector('#showFav').src = '../images/Component 2.svg'
+    document.querySelector('#showProfile').src = '../images/Component 3.svg'
+    document.querySelector('#mainScreen').style.display = 'flex'
+    document.querySelector('#petDetails').style.display = 'none'
+    document.querySelector('#photoWide').innerHTML = ''
+    document.querySelector('#petSpecs').innerHTML = ''
     document.querySelector('#hiddenBack').style.display = 'none'
     document.querySelector('#petBank').innerHTML = '  '
     document.querySelector('#navBar').style.display = 'flex'
     document.querySelector('#titleSection').innerHTML = 'Mensajes'
     document.querySelector('#petTypeSelector').style.display = 'none'
     document.querySelector('#messagePlatform').style.display = 'none'
+
+
     //oculta cosas
     for (let i = 0; i< guest.contactList.length; i++){
     let messageToShow = guest.contactList.contact.conversation[contact.conversation.length - 1]  
@@ -339,11 +381,9 @@ function messagesList(){
         }
 }
 function conversationScreen(){  //
-    // this tiene favorito? entonces imprimir log
     
     document.querySelector('#mainScreen').style.display = 'flex'
     console.log(document.querySelector('#photoAutor').innerHTML);  
-    // document.querySelector('#conversationSpace').innerHTML = ''
     let photoContact = document.querySelector('#photoAutor')
     let nameContact = document.querySelector('#ownerName').innerHTML
     document.querySelector('#messagePlatform').style.display = 'flex'
@@ -462,4 +502,52 @@ function conversationComp(){
 }
 
 
-  
+function profile(){
+    document.querySelector('#showProfile').src = '../images/profileSelect.svg'
+    document.querySelector('#btnHome').src = '../images/homeNoBlue.svg'
+    document.querySelector('#messageImg').src = '../images/Component 1.svg'
+    document.querySelector('#showFav').src = '../images/Component 2.svg'
+
+
+    document.querySelector('#titleSection').innerHTML = 'Perfil'
+    document.querySelector('#petDetails').style.display = 'none'
+    document.querySelector('#mainScreen').style.display = 'flex'
+    document.querySelector('#petBank').innerHTML = ' '
+    document.querySelector('#navBar').style.display = 'flex'
+    document.querySelector('#petTypeSelector').style.display = 'none'
+    document.querySelector('#messagePlatform').style.display = 'none'
+    
+    document.querySelector('#petBank').insertAdjacentHTML ('beforeend',
+     `
+    <div class="flex flex-col w-80" id="profileInputs">
+    <div class="flex justify-center mb-5">
+         <div >
+                <div class="flex justify-center mb-2">
+                <img class="w-20 h-20" src="../images/juanPerez.png">
+                </div>
+                <div class="font-semibold">
+                Juan Méndez
+                </div>
+                <div class="font-semibold">
+                Editar Cuenta
+                </div>
+        </div>
+    </div>
+    <span class="ml-4 font-semibold">Nombre</span>
+    <input id="nameInput" type="text" class="mb-6 p-3 border-solid border border-black rounded-md" name="nameProfile" value="${guest.data.name}" id="nameProfile">
+    <span class="ml-4 font-semibold">Apellido</span>
+    <input id="lnameInput" type="text" class="mb-6 p-3 border-solid border border-black rounded-md" name="lnameProfile" value="${guest.data.lastName}" id="lnameProfile">
+    <span class="ml-4 font-semibold">Correo</span>
+    <input id="emailInput" type="text" class="mb-6 p-3 border-solid border border-black rounded-md" name="emailProfile" value="${guest.data.email}" id="emailProfile">
+    <div id="btnSave" class="cursor-pointer m-2 p-2 text-center bg-selector text-white rounded-3xl">Guardar</div>
+    </div>
+   `
+    )
+    document.querySelector('#btnSave').addEventListener ('click', getProfileData)
+    function getProfileData(){
+     guest.data.name = document.querySelector("#nameInput").value
+     guest.data.lastName = document.querySelector("#lnameInput").value
+     guest.data.email = document.querySelector("#emailInput").value
+     alert ("Su perfil ha sido actualizado")
+    }
+}
