@@ -24,7 +24,7 @@
         
     </section>
     <img src="../images/back.svg" id="hiddenBack" class="h-1/8 fixed left-0 top-1 m-5 cursor-pointer hidden">
-    <h1 class="font-extrabold font-Nunito mt-5 lg:order-2" id="titleSection">Adopta una adorable <br> mascota</h1>
+    <h1 class="font-extrabold text-3xl font-Nunito mt-5 lg:order-2" id="titleSection">Adopta una adorable <br> mascota</h1>
     <section class="lg:order-3 mt-5 font-semibold" id="petTypeSelector"> 
         <h2 class="font-Nunito text-lg" >Categorías de mascotas</h2>
         <div class="flex justify-around">
@@ -50,7 +50,6 @@
     </section>
 
     
-    <script type="module" src="/public/script.js"></script>
     
     <section id="navBar" class="bg-white flex justify-around sm:justify-between w-full py-3 lg:order-1 ">
         <div id="btnHome" class="bg-selector flex items-center rounded-3xl w-28 h-10 ml-10">
@@ -60,10 +59,11 @@
         <div class="flex justify-between w-1/2 sm:justify-around lg:justify-between lg:w-1/5 mx-5 ">
             <img src="/images/Component 1.svg" id="messageImg" class="cursor-pointer">
             <img class="cursor-pointer" id="showFav" src="/images/Component 2.svg" alt="" srcset="">
-            <img src="/images/Component 3.svg" alt="" srcset="">
+            <img class="cursor-pointer" src="/images/Component 3.svg" id="showProfile">
             
         </div>
-
+        
+        <script type="module" src="/public/script.js"></script>
     </section>
 </main>
 
@@ -78,9 +78,9 @@
             <p class="text-homeColor mr-4">Home</p>
         </div>
         <div class="flex justify-between w-1/2 sm:justify-around lg:justify-between lg:w-1/5 mx-5 ">
-            <img id="" src="/images/Component 1.svg" alt="" srcset="">
+            <img src="/images/Component 1.svg" id="messageImg" class="cursor-pointer">
             <img id="showFav" src="/images/Component 2.svg" class="cursor-pointer">
-            <img id="" src="/images/Component 3.svg" alt="" srcset="">
+            <img class="cursor-pointer" src="/images/Component 3.svg" id="showProfile">
             
         </div>
     
@@ -143,8 +143,20 @@
     </div>
 </section>
 
-<!-- FAVORITOS -->
 
+
+
+</section>
+    <section class="flex-col w-screen m-4 h-full hidden" id="profileInputs">
+        <span>Nombre</span>
+        <input type="text" name="nameProfile" id="nameProfile">
+        <span>Apellido</span>
+        <input type="text" name="lnameProfile" id="lnameProfile">
+        <span>Correo</span>
+        <input type="text" name="emailProfile" id="emailProfile">
+        <div class="m-4 bg-selector text-white">Guardar</div>
+
+    </section>
 
 
 

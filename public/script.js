@@ -1,13 +1,14 @@
 class User{
     constructor(){
         this.favoritelist = []
+        this.contactList = []
         this.data = {name:'Cuenta',
                     lastName: 'Visitante',
                     email: 'Por favor actualice sus datos',
                     contacts:[]
         }              
     }
-    addPet(infoPet){
+    addPet(){
         let nameToFav = document.querySelector('#nameDetails').innerHTML
         let photoSrc = document.querySelector('#bigPhoto').getAttribute("src")
         if(petType == 'cat'){
@@ -18,15 +19,24 @@ class User{
         }else{
             for (let i = 0; i<20;i++){
                 if (dogOffer[i].name==nameToFav && dogOffer[i].image==photoSrc){
-                    this.favoritelist.push(dogOffer[i])}
+                    this.contactList.push(dogOffer[i])}
         }
 
     }
 
 
     }
-    
-    deletePet(infoPet){
+    addContact(){
+        let photoSrc = document.querySelector('#photoAutor').children[0].src
+            for (let i = 0; i<20;i++){
+                if (users[i].favorite == 1){}
+                if (users[i].selfieOwner==photoSrc){
+                    users[i].favorite = 1
+                    this.contactList.push(users[i])}
+                    
+            }   
+        }
+    deletePet(){
         let photoSrc = document.querySelector('#bigPhoto').getAttribute("src")
         
         for (let i = 0; i<this.favoritelist.length;i++){
@@ -41,7 +51,6 @@ class User{
         }
         
     }
-    
 }
 import { maleName , femaleName, getRandom } from './petNames.js' // banco de nombres
 import getPersonality from './personalityLocation.js'
@@ -53,14 +62,14 @@ let dogOffer = []
 let users = []
 let petFav
 let petType
-let contactInfo = {}
 let conversationLog = []
+let contactInfo = {}
 let animalNumber
 let guest = new User
 document.querySelector('#btnDog').style.opacity = 1
 document.querySelectorAll('#showFav')[0].addEventListener('click', showFavPetList)
 document.querySelectorAll('#showFav')[1].addEventListener('click', showFavPetList)
-document.querySelector('#hiddenBack').addEventListener ('click', messagesList)
+document.querySelector('#hiddenBack').addEventListener ('click', conversationComp)
 document.querySelector('#heart').addEventListener ('click', toFavorites)
 document.querySelector('#messageImg').addEventListener ('click', messagesList)
 document.querySelector('#btnContact').addEventListener ('click', conversationScreen)
@@ -70,10 +79,8 @@ document.querySelector('#btnHome').addEventListener('click', ()=>{
     document.querySelector('#petBank').innerHTML = ''
     if (document.querySelector('#btnDog').style.opacity == 1){
         printer(dogOffer)}else{printer(catOffer)}
-        
     })
-    
-    
+     
 function getAPI(url){
     return new Promise ((resolve,reject)=> {
         fetch(`${url}`)
@@ -86,9 +93,8 @@ getAPI(PEOPLE_API)
  .then(data => {
     for (let i = 0; i<20;i++){
         users.push( {nameOwner: data.results[i].name.first + " " + data.results[i].name.last, 
-        selfieOwner: data.results[i].picture.large })
+        selfieOwner: data.results[i].picture.large, favorite: 0 })
     }
-    
 })
 document.querySelector('#btnCat').style.opacity = 0.5
 document.querySelector('#back').addEventListener ('click', closeDetails)//flecha
@@ -311,80 +317,59 @@ function printerFav(groupPet){
 function messagesList(){
     document.querySelector('#hiddenBack').style.display = 'none'
     document.querySelector('#petBank').innerHTML = '  '
-    document.querySelector('#messageImg').removeEventListener
     document.querySelector('#navBar').style.display = 'flex'
     document.querySelector('#titleSection').innerHTML = 'Mensajes'
     document.querySelector('#petTypeSelector').style.display = 'none'
     document.querySelector('#messagePlatform').style.display = 'none'
-    document.querySelector('#messageSpace').removeEventListener
-    if(document.querySelector('#conversationSpace').childElementCount>0){
-        console.log(guest.data);
-        console.log ('1er filtro')
-        for (let contact of guest.data.contacts){
-
-            console.log ('sadas')
-            // console.log(contact.contactName)
-            // console.log(contact.photo)
-            // console.log(contact.lastMessageTime);
-            // console.log(contact.conversation[contact.conversation.length - 1]);
-            // if (contact.photo==) {
-                
-            // }
-            document.querySelector('#petBank').insertAdjacentHTML('beforeend',`
+    //oculta cosas
+    for (let i = 0; i< guest.contactList.length; i++){
+    let messageToShow = guest.contactList.contact.conversation[contact.conversation.length - 1]  
+    document.querySelector('#petBank').insertAdjacentHTML('beforeend',`
             <div class="w-80 h-20">
-                <div><img src="${contact.photo}"></div>
-                <div> <div><span>${contact.contactName}</span><p>${contact.lastMessageTime}</p></div> <div>${contact.conversation[contact.conversation.length - 1]}</div> </div>
+                <div id="contactAdded"><img src="${guest.contactList[i].contact.photo}"></div>
+                <div> <div><span>${guest.contactList.contact.contactName}</span><p>${contact.lastMessageTime}</p></div> <div>${contact.conversation[contact.conversation.length - 1]}</div> </div>
                 <div>flecha</div>
             </div>`)
-
-            
-
         }
-        // document.querySelector('#petBank').innerHTML =
-    }
-
-    
-    
-    //imprimir en petbank los contactos
+    for (let i = 0; i < document.querySelectorAll('#contactAdded').length; i++) {
+            document.querySelectorAll('#contactAdded')[i].onclick = conversationScreen
+        }
 }
-function conversationScreen(){  //CLOUSURE
-    // document.querySelector('#ownerName').innerHTML CONSEGUIR NOMBRE DE ACA
-    console.log(document.querySelector('#photoAutor').innerHTML);  
-    // CONSEGUIR FOTO
-    // conversationSpace
-    document.querySelector('#conversationSpace').innerHTML = ''
+function conversationScreen(){  //
+    // this tiene favorito? entonces imprimir log
     
+    document.querySelector('#mainScreen').style.display = 'flex'
+    console.log(document.querySelector('#photoAutor').innerHTML);  
+    // document.querySelector('#conversationSpace').innerHTML = ''
     let photoContact = document.querySelector('#photoAutor')
     let nameContact = document.querySelector('#ownerName').innerHTML
-    let petAbout = document.querySelector('#nameDetails').innerHTML
     document.querySelector('#messagePlatform').style.display = 'flex'
     document.querySelector('#photoMessage').appendChild(photoContact)
     document.querySelector('#nameContact').innerHTML = nameContact
     document.querySelector('#photoAutor').style.width = '64px'
     document.querySelector('#photoAutor').style.height = '64px'
-    console.log(photoContact)
     document.querySelector('#navBar').style.display = 'none'
     document.querySelector('#hiddenBack').style.display = 'flex'
     document.querySelector('#titleSection').innerHTML = ''
     document.querySelector('#petTypeSelector').style.display = 'none'
     document.querySelector('#petBank').innerHTML = ''
-    document.querySelector('#mainScreen').style.display = 'flex'
     document.querySelector('#petDetails').style.display = 'none'
     document.querySelector('#photoWide').innerHTML = ''
     document.querySelector('#petSpecs').innerHTML = ''
-   
+   //oculta cosas y crea interfaz
 }
     document.querySelector('#messageSpace').addEventListener('keypress', function (e) {
-        
-        document.querySelector('#petBank').innerHTML = ''
-        if (e.key === 'Enter') {
+       if (e.key === 'Enter') {
+           
+            guest.addContact()
+            //hora
             let moment = new Date()
             let hour = moment.getHours()
             let minute = moment.getMinutes()
-            let hourToPrint =hour + ':' + minute
+            let hourToPrint = hour + ':' + minute
             
-            conversationLog.push('Yo '+hourToPrint +'/'+ messageSpace.value)
-            console.log(conversationLog);
+            //Burbuja blanca
+            conversationLog.push(hourToPrint +'/'+ messageSpace.value)
             document.querySelector('#conversationSpace').insertAdjacentHTML('beforeend',
             `<div class="w-full flex justify-end">   
                     <div class="flex flex-col w-72 mr-6" >
@@ -393,20 +378,23 @@ function conversationScreen(){  //CLOUSURE
                     border-black ">${messageSpace.value}</span>
                 </div>
              </div>`)
+             //Animacion y reseteo
              document.querySelector('#messageSpace').value = ''
              document.querySelector('#typing').innerHTML = `${document.querySelector('#ownerName').innerHTML} esta escribiendo...`
              document.querySelector('#typing').style.display= 'block'
             setTimeout(()=>{
                 document.querySelector('#typing').style.display= 'none'
+
                 let petAbout = document.querySelector('#nameDetails').innerHTML
                 if (document.querySelector('#conversationSpace').childElementCount >2) {
-                    let messageToReceive = 'ok :)'
+                    let messageToReceive = 'ok :)'// segunda respuesta gris
                     document.querySelector('#conversationSpace').insertAdjacentHTML('beforeend',
                     `<div class="flex flex-col w-72" >
                         <span class="font-semibold mt-10 text-center">${hourToPrint}</span>
                         <span class="flex flex-col items-center bg-messageBubble text-white ml-6 p-4 rounded-2xl border
                          border-black "> ${messageToReceive} </span>
                     </div>`)
+
                     conversationLog.push(hourToPrint + '/' + messageToReceive )
                     
                 }else{
@@ -416,30 +404,59 @@ function conversationScreen(){  //CLOUSURE
                         <span class="font-semibold mt-10 text-center">${hourToPrint}</span>
                         <span class="flex flex-col items-center bg-messageBubble text-white ml-6 p-4 rounded-2xl border
                          border-black "> ${messageToReceive} </span>
-                    </div>`)
+                    </div>`) //primer mensaje gris
                     conversationLog.push(hourToPrint + '/' + messageToReceive )
+                    
                 }
             }, 3000)
-            contactInfo.contactName = document.querySelector('#ownerName').innerHTML
-            contactInfo.photo = document.querySelector('#photoAutor').children[0].src
-            console.log(contactInfo.photo); 
-            // contactInfo.photo =  contactInfo.photo.getAttribute('src')
-            // contactInfo.photo = photoContact.children[0].src
-            contactInfo.lastMessageTime = hourToPrint
-            contactInfo.conversation = conversationLog
-            guest.data.contacts.push(contactInfo)
-            
-            console.log(guest.data.contacts);
 
             
-            // if (document.querySelector('#conversationSpace').childElementCount>0){
-            //     let contact = {name:document.querySelector('#ownerName').innerHTML,
-            //                             photoContact, sendedMessages:}
-            //             guest.data.contacts[hacer push]{nameContact: innerhtml,foto:src contact,mensajes[]}
-            //             document.querySelector('#conversation').insertAdjacentElement
-            //  }
-           }
-    });
+           
+           
+        }
+    })
+    
+function conversationComp(){
+    console.log (guest.contactList)
+    let innerH = document.querySelector('#conversationSpace')
+    let historyContact = [...conversationLog]
+    let lastMessageTime = historyContact[historyContact.length-1]
+    lastMessageTime = lastMessageTime.split("/",1)[0]
+    let lastMessage = historyContact[historyContact.length-1]
+    lastMessage = lastMessage.split("/").pop()
+    console.log(lastMessage);
+    innerH
+    guest.contactList[guest.contactList.length-1].conv = historyContact
+    guest.contactList[guest.contactList.length-1].time = lastMessageTime
+    guest.contactList[guest.contactList.length-1].lastM = lastMessage
+    // lastMessageTime = lastMessageTime.split(" ")
+    console.log(lastMessageTime);
+    document.querySelector('#hiddenBack').style.display = 'none'
+    document.querySelector('#petBank').innerHTML = '  '
+    document.querySelector('#navBar').style.display = 'flex'
+    document.querySelector('#titleSection').innerHTML = 'Mensajes'
+    document.querySelector('#petTypeSelector').style.display = 'none'
+    document.querySelector('#messagePlatform').style.display = 'none'
+    //oculta cosas
+    for (let i = 0; i<= guest.contactList.length -1; i++){
+
+    document.querySelector('#petBank').insertAdjacentHTML('beforeend',`
+            <div id="contactAdded" class="w-80 h-40 bg-white p-2 m-4 flex items-center rounded-3xl" >
+                <div class="">
+                <div class="w-16 h-16 border-4 rounded-full border-homeColor overflow-hidden"">
+                <img src="${guest.contactList[i].selfieOwner}"></div></div>
+                <div class="w-48 p-1"> <div class="flex justify-between">
+                <span class="font-bold">
+                ${guest.contactList[i].nameOwner}</span>
+                <p text-gray-600>${guest.contactList[i].time}</p></div> 
+                <p text-gray-600>${guest.contactList[i].lastM}</p> </div>
+                <div h-full ><img src="../images/arrow.svg"></div>
+            </div>`)
+        }
+    for (let i = 0; i < document.querySelectorAll('#contactAdded').length; i++) {
+            document.querySelectorAll('#contactAdded')[i].onclick = conversationScreen
+        }
+}
 
 
   
