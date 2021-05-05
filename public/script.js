@@ -75,7 +75,7 @@ document.querySelectorAll('#showFav')[0].addEventListener('click', showFavPetLis
 document.querySelectorAll('#showFav')[1].addEventListener('click', showFavPetList)
 document.querySelector('#hiddenBack').addEventListener ('click', conversationComp)
 document.querySelector('#heart').addEventListener ('click', toFavorites)
-document.querySelector('#messageImg').addEventListener ('click', messagesList)
+document.querySelector('#messageImg').addEventListener ('click', conversationComp)
 document.querySelectorAll('#showProfile')[0].addEventListener('click', profile)
 document.querySelectorAll('#showProfile')[1].addEventListener('click', profile)
 document.querySelector('#btnContact').addEventListener ('click', conversationScreen)
