@@ -490,7 +490,7 @@ function conversationComp(){
     for (let i = 0; i<= guest.contactList.length -1; i++){
 
     document.querySelector('#petBank').insertAdjacentHTML('beforeend',`
-            <div id="contactAdded" class="w-80 h-40 bg-white p-2 m-4 flex items-center rounded-3xl" >
+            <div id="contactAdded" class="w-80 h-40 bg-white p-2 m-4 flex items-center rounded-3xl cursor-pointer" >
                 <div class="">
                 <div class="w-16 h-16 border-4 rounded-full border-homeColor overflow-hidden"">
                 <img src="${guest.contactList[i].selfieOwner}"></div></div>
