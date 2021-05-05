@@ -185,9 +185,9 @@ function startEnd(){
 }
 
 function goHome(){
-        document.querySelector('#btnHome').src = '../images/home.svg'
+        document.querySelector('#btnHome').src = 'https://svgshare.com/i/WzP.svg'
         document.querySelector('#messageImg').src = '../images/Component 1.svg'
-        document.querySelector('#showFav').src = '../images/Component 2.svg'
+        document.querySelector('#showFav').src = 'https://svgshare.com/i/Wz_.svg'
         document.querySelector('#showProfile').src = '../images/Component 3.svg'
 
         document.querySelector('#titleSection').innerHTML = `Adopta una adorable <br> mascota`
@@ -322,10 +322,10 @@ function details(){
             
             
             function showFavPetList(){
-                document.querySelector('#showFav').src = '../images/favSelect.svg'
-                document.querySelector('#btnHome').src = '../images/homeNoBlue.svg'
-                document.querySelector('#messageImg').src = '../images/Component 1.svg'
-                document.querySelector('#showProfile').src = '../images/Component 3.svg'
+                document.querySelector('#showFav').src = 'https://svgshare.com/i/Wys.svg'
+                document.querySelector('#btnHome').src = 'https://svgshare.com/i/WyN.svg'
+                document.querySelector('#messageImg').src = 'https://svgshare.com/i/WwR.svg'
+                document.querySelector('#showProfile').src = 'https://svgshare.com/i/WyM.svg'
 
                 document.getElementById('petBank').innerHTML = ""
                 document.querySelector('#mainScreen').style.display = 'flex'
@@ -350,10 +350,10 @@ function printerFav(groupPet){
         }
     }
 function messagesList(){
-    document.querySelector('#messageImg').src = '../images/messageSelected.svg'
-    document.querySelector('#btnHome').src = '../images/homeNoBlue.svg'
-    document.querySelector('#showFav').src = '../images/Component 2.svg'
-    document.querySelector('#showProfile').src = '../images/Component 3.svg'
+    document.querySelector('#messageImg').src = 'https://svgshare.com/s/WyP'
+    document.querySelector('#btnHome').src = 'https://svgshare.com/i/WyN.svg'
+    document.querySelector('#showFav').src = 'https://svgshare.com/i/Wz_.svg'
+    document.querySelector('#showProfile').src = 'https://svgshare.com/i/WyM.svg'
     document.querySelector('#mainScreen').style.display = 'flex'
     document.querySelector('#petDetails').style.display = 'none'
     document.querySelector('#photoWide').innerHTML = ''
@@ -503,10 +503,10 @@ function conversationComp(){
 
 
 function profile(){
-    document.querySelector('#showProfile').src = '../images/profileSelect.svg'
-    document.querySelector('#btnHome').src = '../images/homeNoBlue.svg'
-    document.querySelector('#messageImg').src = '../images/Component 1.svg'
-    document.querySelector('#showFav').src = '../images/Component 2.svg'
+    document.querySelector('#showProfile').src = 'https://svgshare.com/i/WyZ.svg'
+    document.querySelector('#btnHome').src = 'https://svgshare.com/i/WyN.svg'
+    document.querySelector('#messageImg').src = 'https://svgshare.com/i/WwR.svg'
+    document.querySelector('#showFav').src = 'https://svgshare.com/i/Wz_.svg'
 
 
     document.querySelector('#titleSection').innerHTML = 'Perfil'
