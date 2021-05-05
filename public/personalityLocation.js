@@ -18,15 +18,15 @@ function getPersonality(){
 }
 
 let personality = [{attribute: "Amigable",image: "../images/personality/amigable.svg"},
-{attribute: "Cariñoso",image: "../images/personality/cariñoso.svg"},
-{attribute: "Cobarde",image: "../images/personality/cobarde.svg"},
-{attribute: "Gloton",image: "../images/personality/gloton.svg"},
-{attribute: "Guardian",image: "../images/personality/guardian.svg"},
-{attribute: "Inquieto",image: "../images/personality/inquieto.svg"},
-{attribute: "Jugueton",image: "../images/personality/jugueton.svg"},
-{attribute: "Nocturno",image: "../images/personality/nocturno.svg"},
-{attribute: "Tierno",image: "../images/personality/tierno.svg"},
-{attribute: "Dormilon",image: "../images/personality/sleep-icon.jpg"}]
+{attribute: "Cariñoso",image: "https://svgshare.com/i/Wzm.svg"},
+{attribute: "Cobarde",image: "https://svgshare.com/i/Wz5.svg"},
+{attribute: "Gloton",image: "https://svgshare.com/i/X07.svg"},
+{attribute: "Guardian",image: "https://svgshare.com/i/Wzd.svg"},
+{attribute: "Inquieto",image: "https://svgshare.com/i/Wyt.svg"},
+{attribute: "Jugueton",image: "https://svgshare.com/i/Wzn.svg"},
+{attribute: "Nocturno",image: "https://svgshare.com/i/Wyk.svg"},
+{attribute: "Tierno",image: "https://svgshare.com/i/Wzo.svg"},
+{attribute: "Dormilon",image: "https://imagizer.imageshack.com/img922/949/xcqTtV.jpg"}]
 
 let locationList = [
         {
