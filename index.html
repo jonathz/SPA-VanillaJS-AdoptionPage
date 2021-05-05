@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap" rel="stylesheet">
+    <title>Adopta</title>
+</head >
+<!-- bg-primary -->
+<body>
+    <section id="startPop" class="w-screen h-screen flex flex-col bg-crystal backdrop-blur-xl absolute z-0 justify-center items-center">
+        <div id="" class="bg-primary border-solid border-red-300 border-8">
+            <div>
+        <img class=" p-5" id="imgStart" src="./images/start 1.png">
+        <div id="nextStart" class="cursor-pointer w-80 m-10  p-2 text-center bg-selector text-white rounded-3xl">Siguiente</div>
+            </div>
+        </div>
+
+        <div id="" class="bg-primary hidden">
+            <div>
+        <img class=" " src="./images/start 2.png" alt="" srcset="">
+        <div id="startEnd" class="cursor-pointer w-80 m-10  p-2 text-center bg-selector text-white rounded-3xl">Siguiente</div>
+            </div>
+        </div>
+        
+    </section>
+
+
+
+<main id="mainScreen" class="overscroll-contain h-screen bg-primary flex flex-col items-center font-Nunito z-10 blur-xl">
+    <section id="messagePlatform" class="flex-col hidden h-screen">
+        <div id="photoMessage" class="w-screen h-64 flex flex-col-reverse justify-center bg-white items-center">
+            <span id="nameContact" class="font-bold mt-2"></span>
+        </div>
+        <div id="conversationSpace" class="h-screen overflow-y-scroll items-end"></div>
+        <div class="m-1 ">
+            <span id="typing" class="w-full animate-pulse"></span>
+            <input type="text" placeholder="Aa" class="w-full border border-black rounded-sm" id="messageSpace"> 
+        </div>
+        
+    </section>
+
+
+
+
+    <img src="./images/back.svg" id="hiddenBack" class="h-1/8 fixed left-0 top-1 m-5 cursor-pointer hidden">
+    <h1 class="font-extrabold text-3xl font-Nunito mt-5 lg:order-2" id="titleSection">Adopta una adorable <br> mascota</h1>
+    <section class="lg:order-3 mt-5 font-semibold hidden" id="petTypeSelector"> 
+        <h2 class="font-Nunito text-lg" >Categorías de mascotas</h2>
+        <div class="flex justify-around">
+            <div id="btnDog" class="cursor-pointer flex items-center 
+            justify-between rounded-lg bg-selector color-white mr-5">
+            <img class="p-1.5" src="./images/dog-icon.svg" alt="" srcset=""> 
+            <p class="text-white mr-5">Perros</p>
+            </div>
+
+            <div id="btnCat" class="cursor-pointer flex items-center 
+            justify-between rounded-lg bg-selector color-white mr-5">
+            <img class="p-1.5" src="./images/cat-icon.svg" alt="" srcset=""> 
+            <p class="text-white mr-5">Gatos</p>
+            </div>
+                
+        </div>
+
+    </section>
+    <!-- border-solid border-1 border-red-600 -->
+    <section class=" w-96  
+    flex h-full justify-center flex-wrap overflow-y-scroll mt-8 lg:order-4 lg:w-108" id="petBank">
+                    
+    </section>
+
+    
+    
+    <section id="navBar" class="bg-white flex items-center justify-around sm:justify-between w-full py-3 lg:order-1 ">
+        <div id="divHome" class="">
+            <img id="btnHome" src="/images/home.svg" class="cursor-pointer ml-2" alt=""> 
+           </div>
+        <div class="flex justify-between w-1/2 sm:justify-around lg:justify-between lg:w-1/5 mx-5 ">
+            
+            <img src="/images/Component 1.svg" id="messageImg" class="cursor-pointer">
+            <img class="cursor-pointer" id="showFav" src="/images/Component 2.svg" alt="" srcset="">
+            <img class="cursor-pointer" src="/images/Component 3.svg" id="showProfile">
+            
+        </div>
+        
+    </section>
+</main>
+
+<!-- detalles -->
+
+
+
+<section id=petDetails class=" hidden h-screen flex-col items-center font-Nunito md:">
+    <section id="navBar" class="bg-white justify-around sm:justify-between w-full py-3 hidden md:flex">
+        <div id="divHome" class="bg-selector flex items-center rounded-3xl w-28 h-10 ml-10">
+            <img id="btnHomeD" src="/images/home.svg" class="m-2 ml-5" alt=""> 
+            
+        </div>
+        <div class="flex justify-between w-1/2 sm:justify-around lg:justify-between lg:w-1/5 mx-5 ">
+            <img src="/images/Component 1.svg" id="messageImgD" class="cursor-pointer">
+            <img id="showFav" src="/images/Component 2.svg" class="cursor-pointer">
+            <img class="cursor-pointer" src="/images/Component 3.svg" id="showProfile">
+            
+        </div>
+        
+    </section>
+    <div id="containerDetails" class="bg-primary flex flex-col items-center">
+        <!-- foto -->
+        <img src="./images/back.svg" id="back" class="h-1/8 fixed left-0 top-10 m-5 cursor-pointer">
+        <div id="photoWide" class="flex w-screen bg-primary flex-col items-center"></div>
+        <!-- informacion de la mascota -->
+        <section id="mainDetails" class="-pt-20 -mt-5 bg-white rounded-xl w-screen lg:w-108 md:text-center" >
+            <div class="flex justify-between items-center">
+                <div id="petName" class="flex justify-around text-2xl font-extrabold pt-6 pl-6 pb-2 "></div>
+                <div id="heart" class="cursor-pointer w-10 h-10 mr-6 mt-4 border shadow-sm rounded-full flex justify-center items-center hover:bg-red-400">
+                    <img  id="btnHeart" src="./images/heart.svg" >
+                </div>
+            </div>
+            <!-- raza y edad -->
+            <div class="flex p-6 text-gray-600 md:justify-center">
+                <div id="breedBox" class="flex">
+                    <img src="./images/breed.svg">
+                    <p id="breedType" class="mr-10 ml-2"></p>
+                </div>
+                <div id="ageBox" class="flex">
+                    <img class="" src="./images/age.svg">
+                    <p id="ageNumber" class="mr-10 ml-2"></p>
+                </div>
+            </div>
+            <!-- ubicacion -->
+            <div id="locationBox" class="text-gray-600 ml-6 mb-8 flex md:justify-center">
+                <img src="./images/location.svg" >
+                <p id="locationId" class="mr-10 ml-2"></p>
+            </div>
+            
+            <span class="text-lg font font-bold ml-6">Personalidad </span>
+            <div id="petSpecs" class="flex justify-center"></div>
+            
+            <!-- descripcion -->
+            <div class="ml-6 mt-3">
+                <span id="petTitleBio" class="font-bold text-lg"></span>
+                <div id="bioBox" class="py-3"></div>
+            </div>
+            
+            <div id="autor" class="w-full py-3 flex items-end justify-around sm:justify-between" >
+                <div id="containerPhotoBox" class="flex justify-center items-end h-auto">
+                    <div id="photoAutor" class="ml-6 w-10 h-10 mr-6 mt-4 border-4 rounded-full border-homeColor overflow-hidden" ></div>
+                    
+                    <div id="nameAutorBox" class="flex flex-col justify-center">
+                        <span class="text-xs text-gray-700">Publicado por</span>
+                        <span id="ownerName"></span>
+                    </div>
+                </div>
+                <div id="btnContact" class="bg-selector cursor-pointer flex items-center rounded-3xl w-36 h-10 ml-10 justify-center mr-6">
+                    <p class="text-white text-sm">Contactar</p>
+                </div>
+            </div>
+            
+        </section>
+        
+        <!-- </section> -->
+    </div>
+</section>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+<script type="module" src="./public/script.js"></script>
+
+</body>
+</html>  
