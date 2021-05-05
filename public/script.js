@@ -112,12 +112,12 @@ getAPI(CAT_API) //lista de gatos
             if (getRandom(0 , 1) > 0.5){ //macho o hembra?
                 name = femaleName[Math.floor(getRandom(0,100))]
                 gender = 'female'
-                catOffer.push({petType:'cat', name,gender,genderIcon:'../images/female.svg',breed:data[randomBreed].name, age: age(), 
+                catOffer.push({petType:'cat', name,gender,genderIcon:'https://svgshare.com/i/X0J.svg',breed:data[randomBreed].name, age: age(), 
                     image:data[randomBreed].image.url,characteristic,description:data[randomBreed].description,favorite:0,indexNo:i })
             }else{
                 name = maleName[Math.floor(getRandom(0,100))]
                 gender = 'male'
-                catOffer.push({petType:'cat',name,gender, genderIcon:'../images/male.svg', breed:data[randomBreed].name, age: age(), 
+                catOffer.push({petType:'cat',name,gender, genderIcon:'https://svgshare.com/i/Wy_.svg', breed:data[randomBreed].name, age: age(), 
                 image:data[randomBreed].image.url,characteristic, description:data[randomBreed].description,favorite:0,indexNo:i  })
             }
              
@@ -142,12 +142,12 @@ getAPI(DOG_API) // lista de perros
         if (getRandom(0 , 1) > 0.5){ //macho o hembra?
             name = femaleName[Math.floor(getRandom(0,100))]
             gender = 'female'
-            dogOffer.push({petType:'dog',name,gender, genderIcon:'../images/female.svg', breed:data[randomBreed].name, age: age(),
+            dogOffer.push({petType:'dog',name,gender, genderIcon:'https://svgshare.com/i/X0J.svg', breed:data[randomBreed].name, age: age(),
                  image:data[randomBreed].image.url,characteristic,description,favorite:0,indexNo:i })
         }else{
             name = maleName[Math.floor(getRandom(0,100))]
             gender = 'male'
-            dogOffer.push({petType:'dog',name,gender, genderIcon:'../images/male.svg', breed:data[randomBreed].name, age: age(),
+            dogOffer.push({petType:'dog',name,gender, genderIcon:'https://svgshare.com/i/Wy_.svg', breed:data[randomBreed].name, age: age(),
             image:data[randomBreed].image.url,characteristic,description,favorite:0,indexNo:i })
         }
         
