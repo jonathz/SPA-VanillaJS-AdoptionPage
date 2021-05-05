@@ -175,7 +175,7 @@ function button(){
 document.querySelector('#nextStart').addEventListener('click' , nextStart)
 
 function nextStart(){
-    document.querySelector('#imgStart').src = '../images/start 2.png'
+    document.querySelector('#imgStart').src = 'https://imagizer.imageshack.com/img922/538/4gX9Ej.png'
     document.querySelector('#startEnd').style.display = 'block'
     document.querySelector('#nextStart').addEventListener('click' , startEnd) 
 }
@@ -185,10 +185,10 @@ function startEnd(){
 }
 
 function goHome(){
-        document.querySelector('#btnHome').src = 'https://svgur.com/s/WzP'
-        document.querySelector('#messageImg').src = '../images/Component 1.svg'
+        document.querySelector('#btnHome').src = 'https://svgshare.com/i/WzP.svg'
+        document.querySelector('#messageImg').src = 'https://svgshare.com/i/WwR.svg'
         document.querySelector('#showFav').src = 'https://svgshare.com/i/Wz_.svg'
-        document.querySelector('#showProfile').src = '../images/Component 3.svg'
+        document.querySelector('#showProfile').src = 'https://svgshare.com/i/WyM.svg'
 
         document.querySelector('#titleSection').innerHTML = `Adopta una adorable <br> mascota`
         document.querySelector('#petTypeSelector').style.display = 'block'
@@ -350,7 +350,7 @@ function printerFav(groupPet){
         }
     }
 function messagesList(){
-    document.querySelector('#messageImg').src = 'https://svgshare.com/s/WyP'
+    document.querySelector('#messageImg').src = 'https://svgshare.com/i/WyP.svg'
     document.querySelector('#btnHome').src = 'https://svgshare.com/i/WyN.svg'
     document.querySelector('#showFav').src = 'https://svgshare.com/i/Wz_.svg'
     document.querySelector('#showProfile').src = 'https://svgshare.com/i/WyM.svg'
@@ -523,7 +523,7 @@ function profile(){
     <div class="flex justify-center mb-5">
          <div >
                 <div class="flex justify-center mb-2">
-                <img class="w-20 h-20" src="../images/juanPerez.png">
+                <img class="w-20 h-20" src="https://imagizer.imageshack.com/img922/8801/n9sDYk.png">
                 </div>
                 <div class="font-semibold">
                 Juan Méndez
