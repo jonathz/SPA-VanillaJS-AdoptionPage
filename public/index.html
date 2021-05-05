@@ -86,7 +86,6 @@
             
         </div>
         
-        <script type="module" src="/public/script.js"></script>
     </section>
 </main>
 
@@ -106,7 +105,7 @@
             <img class="cursor-pointer" src="/images/Component 3.svg" id="showProfile">
             
         </div>
-    
+        
     </section>
     <div id="containerDetails" class="bg-primary flex flex-col items-center">
         <!-- foto -->
@@ -118,10 +117,10 @@
                 <div id="petName" class="flex justify-around text-2xl font-extrabold pt-6 pl-6 pb-2 "></div>
                 <div id="heart" class="cursor-pointer w-10 h-10 mr-6 mt-4 border shadow-sm rounded-full flex justify-center items-center hover:bg-red-400">
                     <img  id="btnHeart" src="../images/heart.svg" >
+                </div>
             </div>
-        </div>
-        <!-- raza y edad -->
-        <div class="flex p-6 text-gray-600 md:justify-center">
+            <!-- raza y edad -->
+            <div class="flex p-6 text-gray-600 md:justify-center">
                 <div id="breedBox" class="flex">
                     <img src="../images/breed.svg">
                     <p id="breedType" class="mr-10 ml-2"></p>
@@ -130,39 +129,39 @@
                     <img class="" src="../images/age.svg">
                     <p id="ageNumber" class="mr-10 ml-2"></p>
                 </div>
-        </div>
-        <!-- ubicacion -->
-        <div id="locationBox" class="text-gray-600 ml-6 mb-8 flex md:justify-center">
-            <img src="../images/location.svg" >
-            <p id="locationId" class="mr-10 ml-2"></p>
-        </div>
-        
-        <span class="text-lg font font-bold ml-6">Personalidad </span>
-        <div id="petSpecs" class="flex justify-center"></div>
-        
-        <!-- descripcion -->
-        <div class="ml-6 mt-3">
-        <span id="petTitleBio" class="font-bold text-lg"></span>
-        <div id="bioBox" class="py-3"></div>
-        </div>
-        
-        <div id="autor" class="w-full py-3 flex items-end justify-around sm:justify-between" >
-            <div id="containerPhotoBox" class="flex justify-center items-end h-auto">
-            <div id="photoAutor" class="ml-6 w-10 h-10 mr-6 mt-4 border-4 rounded-full border-homeColor overflow-hidden" ></div>
+            </div>
+            <!-- ubicacion -->
+            <div id="locationBox" class="text-gray-600 ml-6 mb-8 flex md:justify-center">
+                <img src="../images/location.svg" >
+                <p id="locationId" class="mr-10 ml-2"></p>
+            </div>
             
-            <div id="nameAutorBox" class="flex flex-col justify-center">
-                <span class="text-xs text-gray-700">Publicado por</span>
-                <span id="ownerName"></span>
+            <span class="text-lg font font-bold ml-6">Personalidad </span>
+            <div id="petSpecs" class="flex justify-center"></div>
+            
+            <!-- descripcion -->
+            <div class="ml-6 mt-3">
+                <span id="petTitleBio" class="font-bold text-lg"></span>
+                <div id="bioBox" class="py-3"></div>
             </div>
-        </div>
-            <div id="btnContact" class="bg-selector cursor-pointer flex items-center rounded-3xl w-36 h-10 ml-10 justify-center mr-6">
-                <p class="text-white text-sm">Contactar</p>
+            
+            <div id="autor" class="w-full py-3 flex items-end justify-around sm:justify-between" >
+                <div id="containerPhotoBox" class="flex justify-center items-end h-auto">
+                    <div id="photoAutor" class="ml-6 w-10 h-10 mr-6 mt-4 border-4 rounded-full border-homeColor overflow-hidden" ></div>
+                    
+                    <div id="nameAutorBox" class="flex flex-col justify-center">
+                        <span class="text-xs text-gray-700">Publicado por</span>
+                        <span id="ownerName"></span>
+                    </div>
+                </div>
+                <div id="btnContact" class="bg-selector cursor-pointer flex items-center rounded-3xl w-36 h-10 ml-10 justify-center mr-6">
+                    <p class="text-white text-sm">Contactar</p>
+                </div>
             </div>
-        </div>
-
+            
         </section>
-
-    <!-- </section> -->
+        
+        <!-- </section> -->
     </div>
 </section>
 
@@ -170,13 +169,14 @@
 
 
 </section>
-    
 
 
 
 
 
 
+
+<script type="module" src="/public/main.js"></script>
 
 </body>
 </html>  

@@ -25,6 +25,8 @@
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^4.0.3",
-    "postcss": "^8.2.13"
+    "postcss": "^8.2.13",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.6.0"
   }
 }
