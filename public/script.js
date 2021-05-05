@@ -185,7 +185,7 @@ function startEnd(){
 }
 
 function goHome(){
-        document.querySelector('#btnHome').src = 'https://svgshare.com/i/WzP.svg'
+        document.querySelector('#btnHome').src = 'https://svgur.com/s/WzP'
         document.querySelector('#messageImg').src = '../images/Component 1.svg'
         document.querySelector('#showFav').src = 'https://svgshare.com/i/Wz_.svg'
         document.querySelector('#showProfile').src = '../images/Component 3.svg'
