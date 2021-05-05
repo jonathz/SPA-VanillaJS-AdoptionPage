@@ -499,7 +499,7 @@ function conversationComp(){
                 ${guest.contactList[i].nameOwner}</span>
                 <p text-gray-600>${guest.contactList[i].time}</p></div> 
                 <p text-gray-600>${guest.contactList[i].lastM}</p> </div>
-                <div h-full ><img src="../images/arrow.svg"></div>
+                <div h-full ><img src="https://svgshare.com/i/WyR.svg"></div>
             </div>`)
         }
     for (let i = 0; i < document.querySelectorAll('#contactAdded').length; i++) {
