@@ -460,7 +460,13 @@ function conversationScreen(){  //
     })
     
 function conversationComp(){
-    console.log (guest.contactList)
+    if (document.querySelector('#conversationSpace').childElementCount == 0){
+        messagesList()
+      }
+    document.querySelector('#messageImg').src = 'https://svgshare.com/i/WyP.svg'
+    document.querySelector('#btnHome').src = 'https://svgshare.com/i/WyN.svg'
+    document.querySelector('#showFav').src = 'https://svgshare.com/i/Wz_.svg'
+    document.querySelector('#showProfile').src = 'https://svgshare.com/i/WyM.svg'
     let innerH = document.querySelector('#conversationSpace')
     let historyContact = [...conversationLog]
     let lastMessageTime = historyContact[historyContact.length-1]
